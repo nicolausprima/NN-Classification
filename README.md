@@ -45,7 +45,7 @@ Clone this repository and install the required Python libraries:
 
 ```bash
 # Clone the repository
-git clone [https://github.com/your-username/diabetes-ann-pytorch.git](https://github.com/your-username/diabetes-ann-pytorch.git)
+git clone [https://github.com/nicolausprima/NN-Classifcation.git](https://github.com/nicolausprima/NN-Classifcation.git)
 
 # Navigate to the project folder
 cd diabetes-ann-pytorch
