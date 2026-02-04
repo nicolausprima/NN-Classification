@@ -53,6 +53,7 @@ cd diabetes-ann-pytorch
 # Install dependencies
 pip install torch pandas matplotlib scikit-learn notebook
 ```
+
 ### 2. Launch the Project
 To view the analysis and run the model training, launch the Jupyter Notebook environment:
 
@@ -60,3 +61,12 @@ To view the analysis and run the model training, launch the Jupyter Notebook env
 # Launch Jupyter Notebook
 jupyter notebook NNDiabetes.ipynb
 ```
+
+## 🏁 Conclusion
+Through this project, several key insights were gathered regarding medical data classification:
+* **Preprocessing Matters:** Medical data often contains outliers; the use of `RobustScaler` was pivotal in stabilizing the model's learning process.
+* **Integrity in Features:** By removing the `glyhb` column from features, the model demonstrates true predictive power rather than relying on direct indicators, proving it can generalize based on other physiological metrics.
+* **Efficiency of ANN:** A relatively simple 3-layer architecture is sufficient to capture the non-linear relationships in tabular clinical data, achieving a high degree of confidence in predicting patient health status.
+
+---
+*Created by [Nicolaus Prima Dharma]*
