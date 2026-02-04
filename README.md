@@ -52,3 +52,11 @@ cd diabetes-ann-pytorch
 
 # Install dependencies
 pip install torch pandas matplotlib scikit-learn notebook
+```
+### 2. Launch the Project
+To view the analysis and run the model training, launch the Jupyter Notebook environment:
+
+```bash
+# Launch Jupyter Notebook
+jupyter notebook NNDiabetes.ipynb
+```
