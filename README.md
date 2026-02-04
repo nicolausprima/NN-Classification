@@ -1,39 +1,54 @@
-# 🏥 Diabetes Prediction with PyTorch
+# 🩺 Diabetes Medical Classification (PyTorch ANN Implementation)
 
-![Python](https://img.shields.io/badge/Python-3.8%2B-blue)
-![PyTorch](https://img.shields.io/badge/Framework-PyTorch-red)
-![Deep Learning](https://img.shields.io/badge/Type-Deep_Learning-purple)
+![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white)
+![Jupyter](https://img.shields.io/badge/Jupyter-F37626?style=for-the-badge&logo=jupyter&logoColor=white)
+![Scikit-Learn](https://img.shields.io/badge/scikit--learn-%23F7931E.svg?style=for-the-badge&logo=scikit-learn&logoColor=white)
 
 ## 📌 Project Overview
-This project demonstrates the implementation of a **Feed-Forward Neural Network (ANN)** using **PyTorch** to classify diabetes health indicators.
+This project develops an **Artificial Neural Network (ANN)** to classify patients into three medical categories: **Normal**, **Prediabetes**, and **Diabetes**. 
 
-Unlike standard binary classification tasks, this model is designed to handle **Multi-Class Classification** (e.g., Non-Diabetic, Pre-Diabetic, Diabetic), requiring a specific network architecture with multiple output neurons.
+The goal is to demonstrate how deep learning can be applied to clinical tabular data to assist in early medical diagnosis. The model processes various physiological metrics (cholesterol, glucose, BMI, etc.) to predict diabetic status with high precision.
 
-## 🧠 Neural Network Architecture
-The model is built using `torch.nn.Module` with the following structure:
-- **Input Layer:** Accepts 8 physiological features (Glucose, BMI, Age, etc.).
-- **Hidden Layers:** Two fully connected layers (20 neurons each) with **ReLU** activation functions to capture non-linear patterns.
-- **Output Layer:** 3 neurons corresponding to the target classes (Class 0, 1, 2).
+## 📂 Dataset
+The dataset used in this project is sourced from **Kaggle**.
+- **Source:** [Diabetes Dataset (Kaggle)](https://www.kaggle.com/datasets/imtkaggleteam/diabetes)
+- **Description:** Patient clinical records including glycosylated hemoglobin levels, BMI, and blood pressure.
+- **Target Variable:** `glyhb_cat` (0: Normal, 1: Prediabetes, 2: Diabetes).
 
-## 🛠️ Tech Stack
-- **PyTorch:** Core framework for building and training the neural network.
-- **Scikit-Learn:** Used for data splitting (`train_test_split`) and standardization (`StandardScaler`).
-- **Pandas & NumPy:** Data manipulation and numerical operations.
-- **Matplotlib:** Visualization of training loss curves.
+## 🧪 Deep Learning Workflow
+The notebook follows a rigorous data science pipeline to ensure model reliability:
 
-## ⚙️ Methodology
-1. **Data Preprocessing:** - Feature scaling using `StandardScaler` (Crucial for Neural Network convergence).
-   - Tensor conversion (`FloatTensor`, `LongTensor`).
-2. **Model Training:**
-   - **Loss Function:** `CrossEntropyLoss` (optimized for multi-class classification).
-   - **Optimizer:** `Adam` optimizer with a learning rate of 0.01.
-   - **Epochs:** Iterative training to minimize loss.
-3. **Evaluation:**
-   - Accuracy calculation on unseen test data.
-   - Comparison of predicted classes vs. actual ground truth.
+1. **Exploratory Data Analysis (EDA):** Detailed visualization of clinical variables using histograms to detect distribution patterns.
+2. **Missing Value Management:**
+    * **Mean Imputation:** Applied to normally distributed features like blood pressure and cholesterol.
+    * **Median Imputation:** Applied to skewed features to maintain robust statistical integrity.
+3. **Advanced Preprocessing:**
+    * **Anti-Leakage Design:** The `glyhb` column is dropped from the features ($X$) because the target ($y$) is derived from it.
+    * **Robust Scaling:** Utilization of `RobustScaler` to handle outliers effectively.
+    * **Label Encoding:** Converting text labels into integers (0, 1, 2) for PyTorch compatibility.
+4. **ANN Architecture:**
+    * **Input Layer:** 14 nodes.
+    * **Hidden Layers:** Two dense layers (12 & 24 neurons) using **ReLU** activation.
+    * **Output Layer:** 3 nodes representing class probabilities.
 
-## 🚀 How to Run
-1. Clone the repository.
-2. Install dependencies:
-   ```bash
-   pip install torch pandas sklearn matplotlib
+
+
+## 📊 Evaluation Results
+The model is trained for **500 epochs** using the **Adam Optimizer** and **Cross-Entropy Loss**. The evaluation phase includes:
+* **Loss Curve Plotting:** Tracking the convergence of the model.
+* **Accuracy Calculation:** Performance metrics calculated over a 20% dedicated test set.
+
+## 🚀 Getting Started
+
+### 1. Installation
+Clone this repository and install the required Python libraries:
+
+```bash
+# Clone the repository
+git clone [https://github.com/your-username/diabetes-ann-pytorch.git](https://github.com/your-username/diabetes-ann-pytorch.git)
+
+# Navigate to the project folder
+cd diabetes-ann-pytorch
+
+# Install dependencies
+pip install torch pandas matplotlib scikit-learn notebook
